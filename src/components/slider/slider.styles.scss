@@ -1,0 +1,81 @@
+@use '../../styles/config';
+
+.slider-container {
+  max-width: 97vw;
+  height: 37vw;
+  margin: 0 auto ;
+  position: relative;
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    transition: opacity ease-in-out 0.4s;
+    position: absolute;
+    opacity: 0;
+    animation: slideAnim2 0.5s ease-in forwards;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.slide-active {
+      animation: slideAnim1 0.5s ease-in forwards;
+    }
+  }
+
+  .dots-container {
+    left: 47%;
+    bottom: -3.5%;
+    position: absolute;
+    display: flex;
+
+    .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        border: 3px solid #f1f1f1;
+        margin: 0 3px;
+        background: #000;
+        opacity: 0.2;
+        cursor: pointer;
+
+        &.dot-active {
+            opacity: 1;
+        }
+      }
+  }
+
+  .p {
+    z-index: 100;
+    font-size: 20px;
+    top: 50%;
+    position: absolute;
+  }
+}
+
+
+@include config.keyframes-animation(slideAnim1) {
+  from {
+    left: 100%;
+    opacity: 0;
+  }
+
+  to {
+    left: 0%;
+    opacity: 1;
+  }
+}
+
+@include config.keyframes-animation(slideAnim2) {
+    from {
+      right: 0%;
+      opacity: 1;
+    }
+  
+    to {
+      right: 100%;
+      opacity: 0;
+    }
+  }

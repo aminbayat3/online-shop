@@ -1,0 +1,6 @@
+@use '../../styles/config';
+
+.products-page {
+    width: 100%;
+    @include config.flex(center, center, row);
+}

@@ -1,0 +1,106 @@
+@use "../../styles/config";
+
+.navigation {
+  @include config.box(100%, 110px); // setting width and height respectively
+  @include config.flex(space-between, null, row);
+  padding: 0 5%;
+  position: relative;
+  @include config.for-desktop-up() {
+    padding: 0 3%;
+  }
+
+  .logo-container {
+    @include config.box(200px, null);
+    @include config.flex(center, null, row);
+    @include config.for-desktop-up() {
+      width: 180px;
+    }
+
+    .logo {
+      @include config.box(155px, 100%);
+      padding: 10px;
+      @include config.for-desktop-up() {
+        width: 148px;
+      }
+    }
+  }
+
+  .nav-links-container {
+    @include config.box(75%, 100%);
+    @include config.flex(flex-end, center, row);
+
+    .nav-link {
+      @include config.flex(null, null, column);
+      padding: 0 20px;
+      @include config.for-desktop-up() {
+        padding: 0 12px;
+      }
+
+      .nav-link-text {
+        line-height: 1;
+        font-size: 23.5px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        transition: all 0.2s ease;
+        @include config.for-desktop-up() {
+          font-size: 22.5px;
+        }
+
+        .arrow {
+          height: 10px;
+          padding: 10px 0 8px 5px;
+          font-size: 27px;
+          transition: all 0.2s ease;
+        }
+
+        &:hover {
+          & ~ .line {
+            @include config.box(100%, 4px);
+            background-color: config.$main-color;
+            border-radius: 50%;
+          }
+
+          &.light {
+            color: config.$sub-color;
+          }
+
+          & .arrow {
+            color: config.$sub-color;
+          }
+        }
+      }
+
+      .line {
+        @include config.box(0, 1px);
+        margin: 0;
+        transition: width 0.5s;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.divider {
+  margin: 18px 0 85px 0;
+  border-top: 1px solid config.$main-color;
+  animation: divide 3s linear 0.5s forwards;
+}
+
+@include config.keyframes-animation(divide) {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 25%;
+  }
+  50% {
+    width: 50%;
+  }
+  75% {
+    width: 75%;
+  }
+  100% {
+    width: 100%;
+  }
+}

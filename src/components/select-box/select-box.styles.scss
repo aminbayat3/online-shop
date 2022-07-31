@@ -1,0 +1,81 @@
+@use "../../styles/config";
+
+.select-box-container {
+  position: absolute;
+  @include config.box(260px, 270px);
+  @include config.flex(null, null, column);
+  padding: 5px;
+  top: 69px;
+  right: 338px;
+  z-index: 5;
+
+  .option {
+    font-size: 0;
+    font-weight: bold;
+    opacity: 0;
+    cursor: pointer;
+    border-bottom: 0.5px solid #c08538;
+    border-radius: 3%;
+    background-color: #fffdf5;
+    transition: all 0.5s ease-out;
+    // animation: disappear 0.1s ease-in forwards;
+
+    &.visible {
+      font-size: 23.5px;
+      padding: 13px 0 13px 20px;
+      opacity: 1;
+      // animation: show 0.5s ease-out both;
+    }
+
+    &:hover {
+      background-color: #fff1de;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// @include config.keyframes-animation(show) {
+//   0% {
+//     font-size: 0;
+//     padding: 0;
+//     opacity: 0;
+//   }
+
+//   50% {
+//     opacity: 0.2;
+//   }
+
+//   75% {
+//     opacity: 0.3;
+//   }
+
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// @include config.keyframes-animation(disappear) {
+//   0% {
+//     font-size: 23.5px;
+//     font-weight: bold;
+//     padding: 13px 0 13px 20px;
+//     opacity: 1;
+//   }
+
+//   50% {
+//     opacity: 0.1;
+//   }
+
+//   75% {
+//     opacity: 0;
+//   }
+
+//   100% {
+//     font-size: 0;
+//     padding: 0;
+//     opacity: 0;
+//   }
+// }

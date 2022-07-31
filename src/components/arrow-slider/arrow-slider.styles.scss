@@ -1,0 +1,14 @@
+.arrow-container {
+  position: absolute;
+  cursor: pointer;
+
+  &.next {
+    top: 50%;
+    right: 20px;
+  }
+
+  &.prev {
+    top: 50%;
+    left: 20px;
+  }
+}

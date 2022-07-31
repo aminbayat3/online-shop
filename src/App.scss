@@ -1,0 +1,25 @@
+@use './styles/config';
+
+* {
+  box-sizing: border-box;
+  color: config.$main-color;
+}
+
+::selection {
+  background: config.$main-color; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: config.$main-color; /* Gecko Browsers */
+  color: #fff;
+}
+
+body {
+  font-family: 'Kalam', cursive;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}

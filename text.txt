@@ -1,0 +1,7 @@
+@use 'button';
+@include button.buttonSmall; for mixins
+margin: 1rem + button.$radius; for variables
+
+animation: example 5s linear 2s infinite alternate;
+
+Array.from({length: 5}) // create an array with the length of 5(all undefined)
