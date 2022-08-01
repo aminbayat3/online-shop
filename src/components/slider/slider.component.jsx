@@ -9,21 +9,32 @@ import './slider.styles.scss';
 
 const Slider = () => {
   const { slideIndex, nextSlide, prevSlide, moveDot } = useContext(SlideContext);
-  const prevSlideIndex = useRef();
+  const prevSlideIndex = useRef(1);
 
   useEffect(() => {
     prevSlideIndex.current = slideIndex;
 }, [slideIndex]);
 
+
   return (
     <div className="slider-container">
       {SLIDER_DATA.map((slideObj, index) => {
+        const slideClass = () => {
+            if(slideIndex === index + 1) {
+                if(slideIndex >= prevSlideIndex.current) {
+                    return 'slide slide-active1';
+                }else {
+                    return 'slide slide-active2';
+                }
+            } else {
+                return 'slide';
+            }
+        }
+        let class1 = slideClass();
         return (
           <div
             key={slideObj.id}
-            className={`${
-              slideIndex === index + 1 ? "slide-active" : ""
-            } slide`}
+            className={class1}
           >
             <img alt='slideImage' src={slideObj.imageUrl} />
           </div>
@@ -41,7 +52,6 @@ const Slider = () => {
           ></div>
         ))}
       </div>
-      <p className="p"> Now: {slideIndex} Before: {prevSlideIndex.current}</p>
     </div>
   );
 };

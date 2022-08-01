@@ -6,6 +6,7 @@ export const SlideContext = createContext({
     nextSlide: () => {},
     prevSlide: () => {},
     moveDot: () => {},
+    // arrowDirection: '',
 });
 
 
@@ -27,13 +28,16 @@ const moveToPrevSlide = (slideIndex) => {
 
 export const SlideProvider = ({children}) => {
     const [slideIndex, setSlideIndex] = useState(1);
+    // const [arrowDirection, setArrowDirection] = useState('next');
 
     const nextSlide = () => {
         setSlideIndex(moveToNextSlide(slideIndex));
+        // setArrowDirection('next');
     }
 
     const prevSlide = () => {
         setSlideIndex(moveToPrevSlide(slideIndex));
+        // setArrowDirection('prev');
     }
 
     const moveDot = (index) => {
@@ -46,6 +50,7 @@ export const SlideProvider = ({children}) => {
         nextSlide,
         prevSlide,
         moveDot,
+        // arrowDirection,
     }
 
     return <SlideContext.Provider value={value}>{children}</SlideContext.Provider>
