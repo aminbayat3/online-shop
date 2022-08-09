@@ -4,23 +4,42 @@
   @include config.box(100%, 110px); // setting width and height respectively
   @include config.flex(space-between, null, row);
   padding: 0 5%;
-  position: relative;
-  @include config.for-desktop-up() {
+  @include config.for-desktop() {
     padding: 0 3%;
+  }
+  @include config.for-tablet-landscape-up() {
+    padding: 0 2%;
+    @include config.box(100%, 90px);
   }
 
   .logo-container {
     @include config.box(200px, null);
     @include config.flex(center, null, row);
-    @include config.for-desktop-up() {
+    @include config.for-desktop() {
       width: 180px;
     }
+    @include config.for-tablet-landscape-up() {
+      width: 135px
+    }
+    @include config.for-tablet-portrait-up() {
+      width: 115px;
+    }
+
 
     .logo {
       @include config.box(155px, 100%);
       padding: 10px;
-      @include config.for-desktop-up() {
+      @include config.for-desktop() {
         width: 148px;
+      }
+      @include config.for-tablet-landscape-up() {
+        width: 128px;
+      }
+      @include config.for-tablet-portrait-up() {
+        width: 110px;
+      }
+      @include config.for-tablet-small() {
+        @include config.box(85px, 78px);
       }
     }
   }
@@ -28,12 +47,25 @@
   .nav-links-container {
     @include config.box(75%, 100%);
     @include config.flex(flex-end, center, row);
+    @include config.for-tablet-landscape-up() {
+      @include config.box(60%, 100%);
+    }
 
     .nav-link {
       @include config.flex(null, null, column);
       padding: 0 20px;
-      @include config.for-desktop-up() {
+      position: relative;
+      @include config.for-desktop() {
         padding: 0 12px;
+      }
+      @include config.for-tablet-landscape-up() {
+        padding: 0 11px;
+      }
+      @include config.for-tablet-portrait-up() {
+        padding: 0 9.5px;
+      }
+      @include config.for-tablet-small() {
+        padding: 0 6px;
       }
 
       .nav-link-text {
@@ -43,8 +75,18 @@
         cursor: pointer;
         display: flex;
         transition: all 0.2s ease;
-        @include config.for-desktop-up() {
+        @include config.for-desktop() {
           font-size: 22.5px;
+        }
+        @include config.for-tablet-landscape-up() {
+          font-size: 20.4px;
+        }
+        @include config.for-tablet-portrait-up() {
+          font-size: 19px;
+        }
+        @include config.for-tablet-small() {
+          line-height: 0.7;
+          font-size: 14px;
         }
 
         .arrow {
@@ -52,6 +94,18 @@
           padding: 10px 0 8px 5px;
           font-size: 27px;
           transition: all 0.2s ease;
+
+          @include config.for-tablet-landscape-up() {
+            font-size: 25px;
+          }
+          @include config.for-tablet-portrait-up() {
+            font-size: 21px;
+            padding: 8px 0 2px 1px;
+          }
+          @include config.for-tablet-small() {
+            font-size: 19px;
+            padding: 8px 0 0 0;
+          }
         }
 
         &:hover {
@@ -59,6 +113,9 @@
             @include config.box(100%, 4px);
             background-color: config.$main-color;
             border-radius: 50%;
+            @include config.for-tablet-small() {
+              @include config.box(90%, 3px);
+            }
           }
 
           &.light {
@@ -85,6 +142,13 @@
   margin: 18px 0 85px 0;
   border-top: 1px solid config.$main-color;
   animation: divide 3s linear 0.5s forwards;
+  @include config.for-tablet-landscape-up() {
+    margin: 8px 0 75px 0;
+  }
+  @include config.for-tablet-small() {
+    margin: 3px 0 55px 0;
+  }
+
 }
 
 @include config.keyframes-animation(divide) {

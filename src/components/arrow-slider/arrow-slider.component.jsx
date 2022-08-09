@@ -8,7 +8,7 @@ const ArrowSlider = ({ direction, moveSlide }) => {
     return(
         <div onClick={moveSlide} className={`${arrowDirection ? 'next' : 'prev'} arrow-container`}>
             {
-                arrowDirection ? (<RightArrow />) : (<LeftArrow />)
+                arrowDirection ? (<RightArrow className='arrow' />) : (<LeftArrow className='arrow' />)
             }
         </div>
     )

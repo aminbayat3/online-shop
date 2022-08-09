@@ -1,0 +1,347 @@
+@use "../../styles/config";
+
+.product-slide-container {
+  position: relative;
+  width: 1400px;
+  margin: 400px auto;
+  @include config.flex(space-between, null, row);
+  @include config.for-wide-screen-desktop() {
+    @include config.flex(center, null, row);
+    margin: 370px auto;
+    width: 1300px;
+  }
+  @include config.for-medium-screen-desktop() {
+    width: 1050px;
+    margin: 320px auto;
+  }
+  @include config.for-tablet-landscape-up() {
+    width: 930px;
+    margin: 270px auto;
+  }
+  @include config.for-tablet-portrait-up() {
+    width: 700px;
+    margin: 260px auto;
+  }
+  @include config.for-tablet-small() {
+    width: 630px;
+    margin: 200px auto;
+  }
+
+  .product-title {
+    position: absolute;
+    @include config.position(-230px, null, null, 40%);
+    font-size: 32px;
+
+    @include config.for-desktop() {
+      font-size: 31px;
+    }
+
+    @include config.for-tablet-landscape-up() {
+      @include config.position(-160px, null, null, 40%);
+      font-size: 25.5px;
+    }
+    @include config.for-tablet-portrait-up() {
+      font-size: 22px;
+    }
+    @include config.for-tablet-small() {
+      @include config.position(-120px, null, null, 40%);
+      font-size: 18px;
+    }
+  }
+
+  .line {
+    @include config.box(80px, 4px);
+    background-color: rgb(231, 134, 0);
+    border-radius: 50%;
+    position: absolute;
+    @include config.position(-135px, null, null, 43.7%);
+
+    @include config.for-tablet-landscape-up() {
+      @include config.position(-90px, null, null, 43%);
+    }
+    @include config.for-tablet-portrait-up() {
+      @include config.box(65px, 4px);
+      @include config.position(-92px, null, null, 43.7%);
+    }
+    @include config.for-tablet-small() {
+      @include config.position(-70px, null, null, 43.4%);
+      @include config.box(50px, 3px);
+    }
+  }
+
+  .base {
+    position: relative;
+    @include config.box(470px, 470px);
+    background-size: cover;
+    background-position: center;
+    margin-left: 50px;
+    @include config.for-wide-screen-desktop() {
+      @include config.box(385px, 385px);
+      margin-left: 0px;
+    }
+    @include config.for-medium-screen-desktop() {
+      @include config.box(345px, 345px);
+      margin-right: 50px;
+    }
+    @include config.for-tablet-landscape-up() {
+      @include config.box(275px, 275px);
+      margin-right: 10px;
+    }
+    @include config.for-tablet-portrait-up() {
+      margin-right: 0px;
+    }
+    @include config.for-tablet-small() {
+      @include config.box(240px, 240px);
+    }
+
+    .basic-product-styles {
+      @include config.flex(center, center, row);
+      @include config.box(94px, 94px);
+      position: absolute;
+      background-color: config.$product-main-color;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-out;
+      @include config.for-wide-screen-desktop() {
+        @include config.box(80px, 80px);
+      }
+      @include config.for-medium-screen-desktop() {
+        @include config.box(72px, 72px);
+      }
+      @include config.for-tablet-landscape-up() {
+        @include config.box(60px, 60px);
+      }
+      @include config.for-tablet-small() {
+        @include config.box(52px, 52px);
+      }
+
+      img {
+        width: 39px;
+        @include config.for-wide-screen-desktop() {
+          width: 33px;
+        }
+        @include config.for-medium-screen-desktop() {
+          width: 31px;
+        }
+        @include config.for-tablet-landscape-up() {
+          width: 23px;
+        }
+        @include config.for-tablet-small() {
+          width: 20px;
+        }
+      }
+
+      &.product-active {
+        background-color: config.$sub-color;
+      }
+    }
+
+    .coffee-beans {
+      @extend .basic-product-styles;
+      @include config.position(-10.5%, null, null, 39.7%);
+    }
+
+    .spices {
+      @extend .basic-product-styles;
+      @include config.position(15.5%, -3%, null, null);
+    }
+
+    .grain {
+      @extend .basic-product-styles;
+      @include config.position(null, -3%, 16.2%, null);
+    }
+
+    .tea {
+      @extend .basic-product-styles;
+      @include config.position(null, null, -8.8%, 38.5%);
+    }
+
+    .nut {
+      @extend .basic-product-styles;
+      @include config.position(null, null, 16.2%, -3%);
+
+      img {
+        width: 31px;
+        @include config.for-wide-screen-desktop() {
+          width: 26px;
+        }
+        @include config.for-medium-screen-desktop() {
+          width: 24.5px;
+        }
+        @include config.for-tablet-landscape-up() {
+          width: 20.5px;
+        }
+        @include config.for-tablet-small() {
+          width: 18.2px;
+        }
+      }
+    }
+
+    .seed {
+      @extend .basic-product-styles;
+      @include config.position(15.5%, null, null, -3%);
+    }
+  }
+
+  .description-container {
+    position: relative;
+    @include config.flex(center, center, row);
+    width: 660px;
+    @include config.for-wide-screen-desktop() {
+      width: 550px;
+      margin-left: 140px;
+    }
+    @include config.for-medium-screen-desktop() {
+      width: 480px;
+      margin-left: 80px;
+    }
+    @include config.for-tablet-landscape-up() {
+      width: 400px;
+    }
+    @include config.for-tablet-portrait-up() {
+      width: 320px;
+      margin-left: 70px;
+    }
+    @include config.for-tablet-small() {
+      width: 310px;
+      margin-left: 55px;
+    }
+
+    .description {
+      opacity: 0;
+      @include config.box(100%, 100%);
+      position: absolute;
+      // transition: all 0.5s ease-out;
+      @include config.flex(center, null, column);
+      padding-bottom: 30px;
+
+      .description-image {
+        max-width: 62px;
+        max-height: 61px;
+        @include config.for-wide-screen-desktop() {
+          @include config.box(48px, 50px);
+        }
+        @include config.for-medium-screen-desktop() {
+          @include config.box(42px, 44px);
+        }
+        @include config.for-tablet-landscape-up() {
+          @include config.box(33px, 36px);
+        }
+        @include config.for-tablet-small() {
+          @include config.box(28px, 31px);
+        }
+
+        &.nut {
+          @include config.for-wide-screen-desktop() {
+            @include config.box(40px, 44.85px);
+          }
+          @include config.for-medium-screen-desktop() {
+            @include config.box(36px, 40.36px);
+          }
+          @include config.for-tablet-landscape-up() {
+            @include config.box(28.5px, 31.95px);
+          }
+          @include config.for-tablet-small() {
+            @include config.box(25px, 28.03px);
+          }
+        }
+      }
+
+      .description-detail {
+        .description-title {
+          margin: 25px 0 10px 0;
+          @include config.for-wide-screen-desktop() {
+            font-size: 26px;
+            margin: 15px 0 8px 0;
+          }
+          @include config.for-medium-screen-desktop() {
+            font-size: 23px;
+            margin: 11px 0 5px 0;
+          }
+          @include config.for-tablet-landscape-up() {
+            font-size: 18.5px;
+            margin: 7px 0 2px 0;
+          }
+          @include config.for-tablet-portrait-up() {
+            font-size: 17px;
+          }
+          @include config.for-tablet-small() {
+            font-size: 15.5px;
+          }
+        }
+
+        .text {
+          font-size: 18px;
+          @include config.for-wide-screen-desktop() {
+            font-size: 16px;
+          }
+          @include config.for-medium-screen-desktop() {
+            font-size: 15.2px;
+          }
+          @include config.for-tablet-landscape-up() {
+            font-size: 12.5px;
+          }
+          @include config.for-tablet-portrait-up() {
+            font-size: 12px;
+          }
+          @include config.for-tablet-small() {
+            font-size: 11px;
+          }
+        }
+      }
+
+      &.description-active {
+        opacity: 1;
+
+        .description-detail {
+          animation: productSlideAnim 0.5s linear forwards;
+        }
+      }
+
+      &.description-active {
+        opacity: 1;
+
+        .description-image {
+          animation: productSlideImageAnim 0.5s linear forwards;
+        }
+      }
+    }
+  }
+}
+
+@include config.keyframes-animation(productSlideAnim) {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@include config.keyframes-animation(productSlideImageAnim) {
+  0% {
+    opacity: 0.5;
+    left: 10px;
+    transform: rotateZ(180deg);
+  }
+
+  50% {
+    opacity: 1;
+    left: 5px;
+    transform: rotateZ(270deg);
+  }
+
+  100% {
+    opacity: 1;
+    left: 0px;
+    transform: rotateZ(360deg);
+  }
+}

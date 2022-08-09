@@ -1,0 +1,80 @@
+@use '../../styles/config';
+
+@mixin dotsPosition($bottom, $left) {
+  position: absolute;
+  display: flex;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin dots($width, $height, $backgroundColor, $opacity) {
+  width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+  opacity: $opacity;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-dots-container {
+  @include dotsPosition(-3.5%, 45%);
+
+  @include config.for-tablet-small() {
+    @include dotsPosition(-6%, 44%);
+  }
+
+  @include config.for-tablet-portrait-up() {
+    @include dotsPosition(-7%, 45%);
+  }
+
+  .dot {
+    @include dots(14px, 14px, #000, 0.2);
+    border: 3px solid #f1f1f1;
+    margin: 0 3px;
+    @include config.for-wide-screen-desktop() {
+        @include dots(12.5px, 12.5px, #000, 0.2);
+      }
+    @include config.for-medium-screen-desktop() {
+        @include dots(10.5px, 10.5px, #000, 0.2);
+      }
+      @include config.for-tablet-small() {
+        @include dots(8.5px, 8.5px, #000, 0.2);
+      }
+
+    &.dot-active {
+      opacity: 1;
+    }
+  }
+}
+
+.product-slider-dots-container {
+  @include dotsPosition(-13%, 43%);
+  @include config.for-wide-screen-desktop() {
+    @include dotsPosition(-13%, 41%);
+  }
+  @include config.for-medium-screen-desktop() {
+    @include dotsPosition(-7%, 41%);
+  }
+
+  .dot {
+    @include dots(16px, 16px, config.$product-main-color, 0.4);
+    border: 3px solid #eeeeee;
+    margin: 0 3px;
+    @include config.for-wide-screen-desktop() {
+        @include dots(14px, 14px, config.$product-main-color, 0.5);
+      }
+      @include config.for-medium-screen-desktop() {
+        @include dots(11px, 11px, config.$product-main-color, 0.5);
+      }
+      @include config.for-tablet-landscape-up() {
+        @include dots(9px, 9px, config.$product-main-color, 0.5);
+      }
+      @include config.for-tablet-small() {
+        @include dots(8.3px, 8.3px, config.$product-main-color, 0.5);
+      }
+
+    &.dot-active {
+      opacity: 1;
+    }
+  }
+}

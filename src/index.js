@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { NavProvider } from "./context/nav-context";
 import { SlideProvider } from "./context/slide-context";
+import { ProductSlideProvider } from "./context/product-slide-context";
 
 import "./index.css";
 import App from "./App";
@@ -13,11 +14,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <SlideProvider>
-      <NavProvider>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </NavProvider>
+      <ProductSlideProvider>
+        <NavProvider>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </NavProvider>
+      </ProductSlideProvider>
     </SlideProvider>
   </BrowserRouter>
 );

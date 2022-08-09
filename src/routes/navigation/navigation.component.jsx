@@ -5,7 +5,7 @@ import { NavContext } from "../../context/nav-context";
 
 import SelectBox from "../../components/select-box/select-box.component";
 
-import Logo from "../../assets/bmFoods.png";
+import logo from "../../assets/bmFoods.png";
 import "./navigation.styles.scss";
 
 const Navigation = () => {
@@ -23,7 +23,7 @@ const Navigation = () => {
     <Fragment>
       <div className="navigation">
         <Link className="logo-container" to="/">
-          <img src={Logo} alt="logo" className="logo" />
+          <img src={logo} alt="logo" className="logo" />
         </Link>
 
         <div className="nav-links-container">
@@ -39,6 +39,7 @@ const Navigation = () => {
             >
               Products <div className="arrow">&#x1F893;</div>
             </div>
+            <SelectBox />
           </div>
           <Link className="nav-link" to="/aboutus">
             <div className="nav-link-text">About Us</div>
@@ -55,7 +56,6 @@ const Navigation = () => {
         </div>
       </div>
       <div className="divider"></div>
-      <SelectBox />
       <Outlet />
     </Fragment>
   );

@@ -1,5 +1,7 @@
 $main-color: #7C4A07;
-$sub-color: #c6832b;
+$sub-color: #a96000;
+$product-main-color: #5d3400;
+
 
 @mixin box($width, $height) {
   width: $width;
@@ -11,6 +13,13 @@ $sub-color: #c6832b;
   justify-content: $justifyContent;
   align-items: $alignItems;
   flex-direction: $flexDirection;
+}
+
+@mixin position($top, $right, $bottom, $left) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }
 
 @mixin keyframes-animation($name) {
@@ -52,8 +61,20 @@ $sub-color: #c6832b;
     @content;
   }
 }
-@mixin for-desktop-up {
+@mixin for-desktop {
   @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin for-medium-screen-desktop {
+  @media (max-width: 1350px) {
+    @content;
+  }
+}
+
+@mixin for-wide-screen-desktop {
+  @media (max-width: 1650px) {
     @content;
   }
 }

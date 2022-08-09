@@ -5,3 +5,9 @@ margin: 1rem + button.$radius; for variables
 animation: example 5s linear 2s infinite alternate;
 
 Array.from({length: 5}) // create an array with the length of 5(all undefined)
+
+animation: ....
+transform-origin: center;
+transform-box: fill-box;
+
+slideIndex > prevSlideIndex.current ? ('slide slide-active1') : ('slide slide-active2');

@@ -1,57 +1,38 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 
 import { SLIDER_DATA } from "./slider-data";
 import { SlideContext } from "../../context/slide-context";
 
+import SliderDots from "../slider-dots/slider-dots.component";
+
 import ArrowSlider from "../arrow-slider/arrow-slider.component";
 
-import './slider.styles.scss';
+import "./slider.styles.scss";
 
 const Slider = () => {
-  const { slideIndex, nextSlide, prevSlide, moveDot } = useContext(SlideContext);
-  const prevSlideIndex = useRef(1);
+  const { nextSlide, prevSlide, slideClass } = useContext(SlideContext);
 
   useEffect(() => {
-    prevSlideIndex.current = slideIndex;
-}, [slideIndex]);
-
+    let timer = setInterval(() => {
+      nextSlide();
+    }, 6000);
+    return () => clearInterval(timer);
+  });
 
   return (
     <div className="slider-container">
       {SLIDER_DATA.map((slideObj, index) => {
-        const slideClass = () => {
-            if(slideIndex === index + 1) {
-                if(slideIndex >= prevSlideIndex.current) {
-                    return 'slide slide-active1';
-                }else {
-                    return 'slide slide-active2';
-                }
-            } else {
-                return 'slide';
-            }
-        }
-        let class1 = slideClass();
+        const addSlideClass = slideClass(index);
         return (
-          <div
-            key={slideObj.id}
-            className={class1}
-          >
-            <img alt='slideImage' src={slideObj.imageUrl} />
+          <div key={slideObj.id} className={addSlideClass}>
+            <img alt="slideImage" src={slideObj.imageUrl} />
           </div>
         );
       })}
       <ArrowSlider moveSlide={nextSlide} direction="next" />
       <ArrowSlider moveSlide={prevSlide} direction="prev" />
 
-      <div className="dots-container">
-        {Array.from({ length: 5 }).map((_, idx) => (
-          <div
-            key={idx}
-            onClick={() => moveDot(idx + 1)}
-            className={`${slideIndex === idx + 1 ? "dot-active" : ""} dot`}
-          ></div>
-        ))}
-      </div>
+      <SliderDots />
     </div>
   );
 };

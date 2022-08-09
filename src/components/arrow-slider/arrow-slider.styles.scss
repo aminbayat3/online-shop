@@ -1,14 +1,24 @@
+@use '../../styles/config';
+
 .arrow-container {
   position: absolute;
   cursor: pointer;
 
   &.next {
-    top: 50%;
-    right: 20px;
+    @include config.position(50%, 20px, null, null);
   }
 
   &.prev {
-    top: 50%;
-    left: 20px;
+    @include config.position(50%, null, null, 20px);
+  }
+
+  svg {
+    @include config.for-tablet-portrait-up() {
+      height: 28px;
+    }
+    @include config.for-tablet-small() {
+      height: 24px;
+    }
+    
   }
 }
