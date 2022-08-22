@@ -6,7 +6,7 @@ import { NavProvider } from "./context/nav-context";
 import { SlideProvider } from "./context/slide-context";
 import { ProductSlideProvider } from "./context/product-slide-context";
 
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
